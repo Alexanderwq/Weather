@@ -38,5 +38,12 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+  .weather-sheet{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    background: #03a9f4;
+    border-radius: 8px;
+    padding: 20px;
+  }
 </style>

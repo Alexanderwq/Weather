@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <WeatherSheet />
   </div>
 </template>
@@ -17,3 +17,14 @@ export default defineComponent({
 </script>
 
 <style src="../src/assets/css/reset.css"></style>
+<style scoped>
+  .content{
+    max-width: 900px;
+    margin: 0 auto;
+  }
+</style>
+<style>
+body {
+  background: #eceef2;
+}
+</style>
