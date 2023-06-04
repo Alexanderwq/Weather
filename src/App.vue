@@ -16,6 +16,4 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
-
-</style>
+<style src="../src/assets/css/reset.css"></style>
