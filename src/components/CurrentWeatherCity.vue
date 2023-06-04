@@ -4,16 +4,16 @@
       {{ cityWeatherData?.location?.name }}
     </p>
     <p class="weather-sheet-current__date">
-      Сейчас {{ cityWeatherData?.location?.localtime }}
+      Сейчас {{ getLocalTime }}
     </p>
     <p class="weather-sheet-current__temperature">
-      {{ cityWeatherData?.current?.temp_c }}
+      {{ getTemperature }}
     </p>
     <p class="weather-sheet-current__wind-speed">
-      {{ cityWeatherData?.current?.wind_kph }}
+      {{ getWindSpeed }} м/с
     </p>
     <p class="weather-sheet-current__humidity">
-      {{ cityWeatherData?.current?.humidity }}
+      {{ cityWeatherData?.current?.humidity }}%
     </p>
   </div>
 </template>
@@ -29,6 +29,21 @@ export default defineComponent({
     ...mapState([
         'cityWeatherData',
     ]),
+
+    getLocalTime(): string {
+      const date = new Date(this.cityWeatherData?.location?.localtime)
+      return date.getHours() + ':' + date.getMinutes();
+    },
+
+    getTemperature(): string {
+      const temperature = this.cityWeatherData?.current?.temp_c;
+      const plus: string = (temperature > 0) ? '+' : '';
+      return plus + '' + Math.round(temperature);
+    },
+
+    getWindSpeed(): number {
+      return Math.round(this.cityWeatherData?.current?.wind_kph / 3.6);
+    },
   },
 
   methods: {
@@ -48,11 +63,29 @@ export default defineComponent({
     display: grid;
     grid-template-columns: repeat(4, auto) 1fr;
     column-gap: 20px;
+    color: #fff;
   }
 
   .weather-sheet-current__city,
   .weather-sheet-current__date,
   .weather-sheet-current__temperature{
     grid-column: 1/6;
+  }
+
+  .weather-sheet-current__temperature{
+    position: relative;
+    justify-self: left;
+    font-weight: bold;
+  }
+
+  .weather-sheet-current__temperature:after{
+    position: absolute;
+    content: '';
+    top: 2px;
+    right: -10px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 2px solid #fff;
   }
 </style>
