@@ -9,9 +9,7 @@
     <p class="weather-sheet-current__temperature">
       {{ getTemperature }}
     </p>
-    <p class="weather-sheet-current__wind-speed">
-      {{ getWindSpeed }} м/с
-    </p>
+    <WindSpeed />
     <p class="weather-sheet-current__humidity">
       {{ cityWeatherData?.current?.humidity }}%
     </p>
@@ -21,9 +19,14 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {mapActions, mapState} from "vuex";
+import WindSpeed from "@/components/WindSpeed.vue";
 
 export default defineComponent({
   name: 'CityCurrentWeather',
+
+  components: {
+    WindSpeed,
+  },
 
   computed: {
     ...mapState([
@@ -39,10 +42,6 @@ export default defineComponent({
       const temperature = this.cityWeatherData?.current?.temp_c;
       const plus: string = (temperature > 0) ? '+' : '';
       return plus + '' + Math.round(temperature);
-    },
-
-    getWindSpeed(): number {
-      return Math.round(this.cityWeatherData?.current?.wind_kph / 3.6);
     },
   },
 
