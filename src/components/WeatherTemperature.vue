@@ -29,6 +29,7 @@ export default defineComponent({
     position: relative;
     justify-self: left;
     font-weight: bold;
+    font-size: 18px;
   }
 
   .temperature:after{

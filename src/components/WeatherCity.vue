@@ -20,5 +20,8 @@ export default defineComponent({
 </script>
 
 <style scoped>
-
+  .city{
+    font-size: 20px;
+    font-weight: bold;
+  }
 </style>

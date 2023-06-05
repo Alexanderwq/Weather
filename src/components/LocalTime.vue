@@ -1,6 +1,6 @@
 <template>
-  <div class="weather-sheet-current__date">
-    Сейчас {{ getLocalTime }}
+  <div class="local-time">
+    Сейчас <b>{{ getLocalTime }}</b>
   </div>
 </template>
 
