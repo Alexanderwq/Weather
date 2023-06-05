@@ -10,9 +10,7 @@
       {{ getTemperature }}
     </p>
     <WindSpeed />
-    <p class="weather-sheet-current__humidity">
-      {{ cityWeatherData?.current?.humidity }}%
-    </p>
+    <WeatherHumidity />
   </div>
 </template>
 
@@ -20,12 +18,14 @@
 import {defineComponent} from "vue";
 import {mapActions, mapState} from "vuex";
 import WindSpeed from "@/components/WindSpeed.vue";
+import WeatherHumidity from "@/components/WeatherHumidity.vue";
 
 export default defineComponent({
   name: 'CityCurrentWeather',
 
   components: {
     WindSpeed,
+    WeatherHumidity,
   },
 
   computed: {
