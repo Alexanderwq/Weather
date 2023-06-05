@@ -17,11 +17,11 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {mapActions, mapState} from "vuex";
-import WindSpeed from "@/components/WindSpeed.vue";
-import WeatherHumidity from "@/components/WeatherHumidity.vue";
-import WeatherTemperature from "@/components/WeatherTemperature.vue";
-import LocalTime from "@/components/LocalTime.vue";
-import WeatherCity from "@/components/WeatherCity.vue";
+import WeatherHumidity from "@/components/CurrentWeather/WeatherHumidity.vue";
+import WeatherTemperature from "@/components/CurrentWeather/WeatherTemperature.vue";
+import LocalTime from "@/components/CurrentWeather/LocalTime.vue";
+import WeatherCity from "@/components/CurrentWeather/WeatherCity.vue";
+import WindSpeed from "@/components/CurrentWeather/WindSpeed.vue";
 
 export default defineComponent({
   name: 'CityCurrentWeather',

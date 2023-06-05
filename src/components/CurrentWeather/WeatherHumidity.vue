@@ -1,6 +1,6 @@
 <template>
   <div class="humidity">
-    <img class="humidity__icon" src="../assets/images/humidity.svg" alt="humidity" />
+    <img class="humidity__icon" src="../../assets/images/humidity.svg" alt="humidity" />
     <p class="humidity__text">
       {{ cityWeatherData?.current?.humidity }}%
     </p>

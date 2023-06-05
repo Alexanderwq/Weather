@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import WeatherSheet from "@/components/WeatherSheet.vue";
+import WeatherSheet from "@/components/WeatherSheet/WeatherSheet.vue";
 
 export default defineComponent({
   name: 'App',

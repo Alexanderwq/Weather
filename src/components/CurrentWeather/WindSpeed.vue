@@ -1,6 +1,6 @@
 <template>
   <div class="wind-speed">
-    <img class="wind-speed__icon" src="../assets/images/wind.svg" alt="wind" />
+    <img class="wind-speed__icon" src="../../assets/images/wind.svg" alt="wind" />
     <p class="wind-speed__text">
       {{ getWindSpeed }} м/с
     </p>
