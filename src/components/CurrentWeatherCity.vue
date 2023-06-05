@@ -32,7 +32,7 @@ export default defineComponent({
 
     getLocalTime(): string {
       const date = new Date(this.cityWeatherData?.location?.localtime)
-      return date.getHours() + ':' + date.getMinutes();
+      return date.toLocaleTimeString().slice(0, 5)
     },
 
     getTemperature(): string {
