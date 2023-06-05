@@ -1,14 +1,14 @@
 <template>
   <div class="weather-sheet-current">
-    <p class="weather-sheet-current__city">
-      {{ cityWeatherData?.location?.name }}
-    </p>
-    <p class="weather-sheet-current__date">
-      Сейчас {{ getLocalTime }}
-    </p>
-    <p class="weather-sheet-current__temperature">
-      {{ getTemperature }}
-    </p>
+    <WeatherCity
+      class="weather-sheet-current-city"
+    />
+    <LocalTime
+      class="weather-sheet-current-time"
+    />
+    <WeatherTemperature
+      class="weather-sheet-current-temperature"
+    />
     <WindSpeed />
     <WeatherHumidity />
   </div>
@@ -19,6 +19,9 @@ import {defineComponent} from "vue";
 import {mapActions, mapState} from "vuex";
 import WindSpeed from "@/components/WindSpeed.vue";
 import WeatherHumidity from "@/components/WeatherHumidity.vue";
+import WeatherTemperature from "@/components/WeatherTemperature.vue";
+import LocalTime from "@/components/LocalTime.vue";
+import WeatherCity from "@/components/WeatherCity.vue";
 
 export default defineComponent({
   name: 'CityCurrentWeather',
@@ -26,23 +29,15 @@ export default defineComponent({
   components: {
     WindSpeed,
     WeatherHumidity,
+    WeatherTemperature,
+    LocalTime,
+    WeatherCity,
   },
 
   computed: {
     ...mapState([
         'cityWeatherData',
     ]),
-
-    getLocalTime(): string {
-      const date = new Date(this.cityWeatherData?.location?.localtime)
-      return date.toLocaleTimeString().slice(0, 5)
-    },
-
-    getTemperature(): string {
-      const temperature = this.cityWeatherData?.current?.temp_c;
-      const plus: string = (temperature > 0) ? '+' : '';
-      return plus + '' + Math.round(temperature);
-    },
   },
 
   methods: {
@@ -65,26 +60,9 @@ export default defineComponent({
     color: #fff;
   }
 
-  .weather-sheet-current__city,
-  .weather-sheet-current__date,
-  .weather-sheet-current__temperature{
+  .weather-sheet-current-city,
+  .weather-sheet-current-time,
+  .weather-sheet-current-temperature{
     grid-column: 1/6;
-  }
-
-  .weather-sheet-current__temperature{
-    position: relative;
-    justify-self: left;
-    font-weight: bold;
-  }
-
-  .weather-sheet-current__temperature:after{
-    position: absolute;
-    content: '';
-    top: 2px;
-    right: -10px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    border: 2px solid #fff;
   }
 </style>
