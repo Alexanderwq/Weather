@@ -1,17 +1,20 @@
 <template>
   <div class="content">
     <WeatherSheet />
+    <SheetWeatherDays />
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from "vue";
 import WeatherSheet from "@/components/WeatherSheet/WeatherSheet.vue";
+import SheetWeatherDays from "@/components/CurrentWeather/SheetWeatherDays.vue";
 
 export default defineComponent({
   name: 'App',
   components: {
     WeatherSheet,
+    SheetWeatherDays,
   },
 })
 </script>
