@@ -8,7 +8,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import WeatherSheet from "@/components/WeatherSheet/WeatherSheet.vue";
-import SheetWeatherDays from "@/components/CurrentWeather/SheetWeatherDays.vue";
+import SheetWeatherDays from "@/components/SheetWeatherDays/SheetWeatherDays.vue";
 
 export default defineComponent({
   name: 'App',

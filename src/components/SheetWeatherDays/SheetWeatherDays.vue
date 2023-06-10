@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import WeatherList from "@/components/CurrentWeather/WeatherList.vue";
+import WeatherList from "@/components/SheetWeatherDays/WeatherList.vue";
 
 export default defineComponent({
   name: 'SheetWeatherDays',
