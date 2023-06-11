@@ -1,0 +1,28 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !\.css$
+RewriteCond %{REQUEST_FILENAME} !\.js$
+RewriteCond %{REQUEST_FILENAME} !\.png$
+RewriteCond %{REQUEST_FILENAME} !\.jpg$
+RewriteCond %{REQUEST_FILENAME} !\.gif$
+RewriteCond %{REQUEST_FILENAME} !\.svg$
+RewriteCond %{REQUEST_FILENAME} !\.ico$
+RewriteCond %{REQUEST_FILENAME} !\.woff$
+RewriteCond %{REQUEST_FILENAME} !\.woff2$
+RewriteCond %{REQUEST_FILENAME} !\.eot$
+RewriteCond %{REQUEST_FILENAME} !\.ttf$
+RewriteCond %{REQUEST_FILENAME} !\.xml$
+RewriteRule ^ index.php [QSA,L]
+
+<IfModule mod_gzip.c>
+mod_gzip_on Yes
+mod_gzip_item_include file \.js$
+mod_gzip_item_include file \.css$ </ifmodule>
+</IfModule>
+
+# Запрет к файлам
+RedirectMatch 404 /\.git
+RedirectMatch 404 /\.env
+RedirectMatch 404 /\.env\.example
+RedirectMatch 404 /([^/]*)/*\.log
+RedirectMatch 404 /docker-compose.yml
+RedirectMatch 404 /docker/
