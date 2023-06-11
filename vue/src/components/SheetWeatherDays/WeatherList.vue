@@ -11,7 +11,7 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {mapState} from "vuex";
-import WeatherDay from "@/components/SheetWeatherDays/WeatherDay.vue";
+import WeatherDay from "./WeatherDay.vue";
 
 export default defineComponent({
   name: 'WeatherList',

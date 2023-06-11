@@ -1,6 +1,6 @@
-import CityLocation from "@/models/CityLocation";
-import CurrentWeather from "@/models/CurrentWeather";
-import WeatherDayData from "@/models/WeatherDayData";
+import CityLocation from "./CityLocation";
+import CurrentWeather from "./CurrentWeather";
+import WeatherDayData from "./WeatherDayData";
 
 export default interface CityWeather{
     current: CurrentWeather,

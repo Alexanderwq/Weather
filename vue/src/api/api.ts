@@ -1,6 +1,6 @@
 import axios from "axios";
-import { url, apiKey } from "@/api/consts";
-import CityWeather from "@/models/CityWeather";
+import { url, apiKey } from "./consts";
+import CityWeather from "../models/CityWeather";
 
 export default {
     getCityWeather(): Promise<CityWeather> {

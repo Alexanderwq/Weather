@@ -7,8 +7,8 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import WeatherSheet from "@/components/WeatherSheet/WeatherSheet.vue";
-import SheetWeatherDays from "@/components/SheetWeatherDays/SheetWeatherDays.vue";
+import WeatherSheet from "./components/WeatherSheet/WeatherSheet.vue";
+import SheetWeatherDays from "./components/SheetWeatherDays/SheetWeatherDays.vue";
 
 export default defineComponent({
   name: 'App',
@@ -19,7 +19,7 @@ export default defineComponent({
 })
 </script>
 
-<style src="../src/assets/css/reset.css"></style>
+<style src="reset.css"></style>
 <style scoped>
   .content{
     max-width: 900px;

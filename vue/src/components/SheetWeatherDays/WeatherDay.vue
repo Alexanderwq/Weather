@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
-import WeatherDayData from "@/models/WeatherDayData";
+import WeatherDayData from "../../models/WeatherDayData";
 
 export default defineComponent({
   name: 'WeatherDay',

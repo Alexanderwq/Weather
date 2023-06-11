@@ -1,4 +1,4 @@
-import ForecastDay from "@/models/ForecastDay";
+import ForecastDay from "./ForecastDay";
 
 export default interface WeatherDayData{
     date: string,
