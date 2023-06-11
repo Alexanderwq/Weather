@@ -1,4 +1,4 @@
-FROM php:7.4-apache
+FROM php:8.2-apache
 
 # настройка модулей
 RUN a2enmod rewrite
@@ -18,7 +18,7 @@ RUN apt-get update \
      && apt-get install -y libzip-dev \
      && docker-php-ext-install zip
 
-RUN pecl install xdebug-2.9.0
+RUN pecl install xdebug-3.2.1
 COPY xdebug.ini "${PHP_INI_DIR}/conf.d"
 
 RUN docker-php-ext-install pdo_mysql
