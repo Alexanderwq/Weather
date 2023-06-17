@@ -10,6 +10,18 @@ use Psr\Http\Message\ServerRequestInterface;
 
 class GetCurrentWeatherAction
 {
+    private GuzzleClient $guzzleClient;
+    private CurrentWeatherDataBuilder $currentWeatherDataBuilder;
+
+    public function __construct(
+        GuzzleClient $guzzleClient,
+        CurrentWeatherDataBuilder $currentWeatherDataBuilder,
+    )
+    {
+        $this->guzzleClient = $guzzleClient;
+        $this->currentWeatherDataBuilder = $currentWeatherDataBuilder;
+    }
+
     /**
      * @throws GuzzleException
      */
@@ -17,15 +29,16 @@ class GetCurrentWeatherAction
     {
         $city = $request->getParsedBody()['city'];
 
-        $currentWeatherData = (new CurrentWeatherDataBuilder())
+        $currentWeatherData = $this->currentWeatherDataBuilder
             ->setCity($city)
             ->setDays()
             ->setKey()
             ->getCurrentWeather();
         $currentWeatherDataAsArray = json_decode(json_encode($currentWeatherData), true);
 
-        $client = new GuzzleClient();
-        $response->getBody()->write($client->call($currentWeatherDataAsArray));
+        $json = $this->guzzleClient->call($currentWeatherDataAsArray);
+
+        $response->getBody()->write($json);
 
         return $response;
     }
