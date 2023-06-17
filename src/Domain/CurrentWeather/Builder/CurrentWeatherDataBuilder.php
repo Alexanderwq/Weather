@@ -2,20 +2,20 @@
 
 namespace App\Domain\CurrentWeather\Builder;
 
-use App\Domain\CurrentWeather\Data\CurrentWeatherData;
+use App\Domain\CurrentWeather\Data\WeatherRequest;
 
 class CurrentWeatherDataBuilder
 {
-    private CurrentWeatherData $currentWeather;
+    private WeatherRequest $currentWeather;
 
     private CONST DAYS = '3';
 
     public function __construct()
     {
-        $this->currentWeather = new CurrentWeatherData();
+        $this->currentWeather = new WeatherRequest();
     }
 
-    public function getCurrentWeather(): CurrentWeatherData
+    public function getCurrentWeather(): WeatherRequest
     {
         return $this->currentWeather;
     }

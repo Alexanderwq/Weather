@@ -2,7 +2,7 @@
 
 namespace App\Domain\CurrentWeather\Data;
 
-class CurrentWeatherData
+class WeatherRequest
 {
     public string $key;
 
