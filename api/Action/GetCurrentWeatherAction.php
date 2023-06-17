@@ -3,7 +3,7 @@
 namespace Api\Action;
 
 use App\Domain\Common\Service\GuzzleClient;
-use App\Domain\CurrentWeather\Builder\CurrentWeatherRequestBuilder;
+use App\Domain\CurrentWeather\Builder\CurrentWeatherDataBuilder;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -17,14 +17,15 @@ class GetCurrentWeatherAction
     {
         $city = $request->getParsedBody()['city'];
 
-        $client = new GuzzleClient();
-        $currentWeather = (new CurrentWeatherRequestBuilder())
-            ->build($city)
+        $currentWeatherData = (new CurrentWeatherDataBuilder())
+            ->setCity($city)
+            ->setDays()
+            ->setKey()
             ->getCurrentWeather();
+        $currentWeatherDataAsArray = json_decode(json_encode($currentWeatherData), true);
 
-        $currentWeatherAsArray = json_decode(json_encode($currentWeather), true);
-
-        $response->getBody()->write($client->call($currentWeatherAsArray));
+        $client = new GuzzleClient();
+        $response->getBody()->write($client->call($currentWeatherDataAsArray));
 
         return $response;
     }

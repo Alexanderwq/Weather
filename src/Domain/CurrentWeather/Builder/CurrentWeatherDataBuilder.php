@@ -4,7 +4,7 @@ namespace App\Domain\CurrentWeather\Builder;
 
 use App\Domain\CurrentWeather\Data\CurrentWeatherData;
 
-class CurrentWeatherRequestBuilder
+class CurrentWeatherDataBuilder
 {
     private CurrentWeatherData $currentWeather;
 
@@ -15,32 +15,29 @@ class CurrentWeatherRequestBuilder
         $this->currentWeather = new CurrentWeatherData();
     }
 
-    public function build(string $city): CurrentWeatherRequestBuilder
-    {
-        $this->setCity($city);
-        $this->setDays();
-        $this->setKey();
-
-        return $this;
-    }
-
     public function getCurrentWeather(): CurrentWeatherData
     {
         return $this->currentWeather;
     }
 
-    private function setCity(string $city): void
+    public function setCity(string $city): CurrentWeatherDataBuilder
     {
         $this->currentWeather->q = $city;
+
+        return $this;
     }
 
-    private function setKey(): void
+    public function setKey(): static
     {
         $this->currentWeather->key = getenv('API_KEY');
+
+        return $this;
     }
 
-    private function setDays(): void
+    public function setDays(): static
     {
         $this->currentWeather->days = self::DAYS;
+
+        return $this;
     }
 }
