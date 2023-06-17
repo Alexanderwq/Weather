@@ -11,6 +11,7 @@ return function (App $app) {
         true,
         $app->getContainer()->get(LoggerInterface::class)
     );
+    $app->addBodyParsingMiddleware();
 
     $app->add(ErrorMiddleware::class);
 };
