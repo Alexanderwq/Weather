@@ -4,15 +4,9 @@ namespace App\Domain\CurrentWeather\Data;
 
 class CurrentWeatherData
 {
-    /**
-     * @var string
-     */
-    public $key;
+    public string $key;
 
-    /**
-     * @var string
-     */
-    public $q;
+    public string $q;
 
-    public $days;
+    public string $days;
 }

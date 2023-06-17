@@ -6,10 +6,7 @@ use App\Domain\CurrentWeather\Data\CurrentWeatherData;
 
 class CurrentWeatherRequestBuilder
 {
-    /**
-     * @var CurrentWeatherData
-     */
-    private $currentWeather;
+    private CurrentWeatherData $currentWeather;
 
     private CONST DAYS = '3';
 
@@ -18,7 +15,7 @@ class CurrentWeatherRequestBuilder
         $this->currentWeather = new CurrentWeatherData();
     }
 
-    public function build($city): CurrentWeatherRequestBuilder
+    public function build(string $city): CurrentWeatherRequestBuilder
     {
         $this->setCity($city);
         $this->setDays();
@@ -32,17 +29,17 @@ class CurrentWeatherRequestBuilder
         return json_decode(json_encode($this->currentWeather), true);
     }
 
-    private function setCity(string $city)
+    private function setCity(string $city): void
     {
         $this->currentWeather->q = $city;
     }
 
-    private function setKey()
+    private function setKey(): void
     {
         $this->currentWeather->key = '47c435aa3b4f42fabda191228232405';
     }
 
-    private function setDays()
+    private function setDays(): void
     {
         $this->currentWeather->days = self::DAYS;
     }
