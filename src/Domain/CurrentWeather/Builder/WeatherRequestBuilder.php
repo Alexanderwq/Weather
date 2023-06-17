@@ -4,7 +4,7 @@ namespace App\Domain\CurrentWeather\Builder;
 
 use App\Domain\CurrentWeather\Data\WeatherRequest;
 
-class CurrentWeatherDataBuilder
+class WeatherRequestBuilder
 {
     private WeatherRequest $currentWeather;
 

@@ -3,7 +3,7 @@
 namespace Api\Action;
 
 use App\Domain\Common\Service\GuzzleClient;
-use App\Domain\CurrentWeather\Builder\CurrentWeatherDataBuilder;
+use App\Domain\CurrentWeather\Builder\WeatherRequestBuilder;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -11,11 +11,11 @@ use Psr\Http\Message\ServerRequestInterface;
 class GetCurrentWeatherAction
 {
     private GuzzleClient $guzzleClient;
-    private CurrentWeatherDataBuilder $currentWeatherDataBuilder;
+    private WeatherRequestBuilder $currentWeatherDataBuilder;
 
     public function __construct(
-        GuzzleClient $guzzleClient,
-        CurrentWeatherDataBuilder $currentWeatherDataBuilder,
+        GuzzleClient          $guzzleClient,
+        WeatherRequestBuilder $currentWeatherDataBuilder,
     )
     {
         $this->guzzleClient = $guzzleClient;
