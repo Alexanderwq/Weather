@@ -19,7 +19,7 @@ export default defineComponent({
 })
 </script>
 
-<style src="reset.css"></style>
+<style src="./assets/css/reset.css"></style>
 <style scoped>
   .content{
     max-width: 900px;
