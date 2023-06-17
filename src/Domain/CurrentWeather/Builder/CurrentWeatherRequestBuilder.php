@@ -24,9 +24,9 @@ class CurrentWeatherRequestBuilder
         return $this;
     }
 
-    public function getArray()
+    public function getCurrentWeather(): CurrentWeatherData
     {
-        return json_decode(json_encode($this->currentWeather), true);
+        return $this->currentWeather;
     }
 
     private function setCity(string $city): void
@@ -36,7 +36,7 @@ class CurrentWeatherRequestBuilder
 
     private function setKey(): void
     {
-        $this->currentWeather->key = '47c435aa3b4f42fabda191228232405';
+        $this->currentWeather->key = getenv('API_KEY');
     }
 
     private function setDays(): void

@@ -18,11 +18,13 @@ class GetCurrentWeatherAction
         $city = $request->getParsedBody()['city'];
 
         $client = new GuzzleClient();
-        $currentWeatherData = (new CurrentWeatherRequestBuilder())
+        $currentWeather = (new CurrentWeatherRequestBuilder())
             ->build($city)
-            ->getArray();
+            ->getCurrentWeather();
 
-        $response->getBody()->write($client->call($currentWeatherData));
+        $currentWeatherAsArray = json_decode(json_encode($currentWeather), true);
+
+        $response->getBody()->write($client->call($currentWeatherAsArray));
 
         return $response;
     }
