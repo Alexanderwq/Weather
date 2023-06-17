@@ -20,7 +20,7 @@ class CurrentWeatherDataBuilder
         return $this->currentWeather;
     }
 
-    public function setCity(string $city): CurrentWeatherDataBuilder
+    public function setCity(string $city): static
     {
         $this->currentWeather->q = $city;
 
@@ -29,7 +29,7 @@ class CurrentWeatherDataBuilder
 
     public function setKey(): static
     {
-        $this->currentWeather->key = getenv('API_KEY');
+        $this->currentWeather->key = $_ENV['API_KEY'];
 
         return $this;
     }
