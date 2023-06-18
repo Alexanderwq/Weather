@@ -1,7 +1,10 @@
 <template>
   <div class="content">
-    <WeatherSheet />
-    <SheetWeatherDays />
+    <template v-if="!showPreloader">
+      <WeatherSheet />
+      <SheetWeatherDays />
+    </template>
+    <MainPreloader class="preloader" v-else />
   </div>
 </template>
 
@@ -9,12 +12,31 @@
 import {defineComponent} from "vue";
 import WeatherSheet from "./components/WeatherSheet/WeatherSheet.vue";
 import SheetWeatherDays from "./components/SheetWeatherDays/SheetWeatherDays.vue";
+import {mapActions, mapState} from "vuex";
+import MainPreloader from "./components/Common/MainPreloader.vue";
 
 export default defineComponent({
   name: 'App',
   components: {
     WeatherSheet,
     SheetWeatherDays,
+    MainPreloader,
+  },
+
+  computed: {
+    ...mapState([
+        'showPreloader',
+    ]),
+  },
+
+  methods: {
+    ...mapActions([
+        'getCityWeather',
+    ])
+  },
+
+  created() {
+    this.getCityWeather();
   },
 })
 </script>
@@ -24,10 +46,14 @@ export default defineComponent({
   .content{
     max-width: 900px;
     margin: 0 auto;
+    height: 100vh;
+  }
+  .preloader{
+
   }
 </style>
 <style>
-body {
-  background: #eceef2;
-}
+  body {
+    background: #eceef2;
+  }
 </style>

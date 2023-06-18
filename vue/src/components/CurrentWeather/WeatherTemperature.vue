@@ -16,7 +16,7 @@ export default defineComponent({
         'cityWeatherData',
     ]),
     getTemperature(): string {
-      const temperature = this.cityWeatherData?.current?.temp_c;
+      const temperature = this.cityWeatherData.current.temp_c;
       const plus: string = (temperature > 0) ? '+' : '';
       return plus + '' + Math.round(temperature);
     },

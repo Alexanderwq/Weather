@@ -19,7 +19,7 @@ export default defineComponent({
         'cityWeatherData',
     ]),
     getWindSpeed(): number {
-      return Math.round(this.cityWeatherData?.current?.wind_kph / 3.6);
+      return Math.round(this.cityWeatherData.current.wind_kph / 3.6);
     },
   },
 });

@@ -1,6 +1,6 @@
 <template>
   <div class="city">
-    {{ cityWeatherData?.location?.name }}
+    {{ cityWeatherData.location.name }}
   </div>
 </template>
 
