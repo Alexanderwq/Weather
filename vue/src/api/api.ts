@@ -3,7 +3,7 @@ import CityWeather from "../models/CityWeather";
 
 export default {
     getCityWeather(): Promise<CityWeather> {
-        return axios.post('/get_current_weather',
+        return axios.post('/get_weather_city',
             JSON.stringify({
                     city: 'Ярославль',
             }),
