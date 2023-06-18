@@ -10,7 +10,7 @@ use JsonMapper_Exception;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
-class GetCurrentWeatherAction
+class GetWeatherAction
 {
     private GuzzleClient $guzzleClient;
     private WeatherRequestBuilder $currentWeatherDataBuilder;
