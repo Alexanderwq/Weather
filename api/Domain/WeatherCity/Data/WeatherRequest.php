@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\CurrentWeather\Data;
+namespace Api\Domain\WeatherCity\Data;
 
-class CurrentWeatherData
+class WeatherRequest
 {
     public string $key;
 

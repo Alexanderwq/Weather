@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Domain\CurrentWeather\Builder;
+namespace Api\Domain\WeatherCity\Builder;
 
-use App\Domain\CurrentWeather\Data\CurrentWeatherData;
+use Api\Domain\WeatherCity\Data\WeatherRequest;
 
-class CurrentWeatherDataBuilder
+class WeatherRequestBuilder
 {
-    private CurrentWeatherData $currentWeather;
+    private WeatherRequest $currentWeather;
 
     private CONST DAYS = '3';
 
     public function __construct()
     {
-        $this->currentWeather = new CurrentWeatherData();
+        $this->currentWeather = new WeatherRequest();
     }
 
-    public function getCurrentWeather(): CurrentWeatherData
+    public function getCurrentWeather(): WeatherRequest
     {
         return $this->currentWeather;
     }

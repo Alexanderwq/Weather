@@ -19,7 +19,8 @@
         "php-di/php-di": "^7.0",
         "monolog/monolog": "^3.3",
         "ext-curl": "*",
-        "guzzlehttp/guzzle": "^7.7"
+        "guzzlehttp/guzzle": "^7.7",
+        "netresearch/jsonmapper": "^4.2"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.7"
