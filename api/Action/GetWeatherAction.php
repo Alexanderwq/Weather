@@ -2,9 +2,9 @@
 
 namespace Api\Action;
 
-use App\Domain\Common\Service\GuzzleClient;
-use App\Domain\CurrentWeather\Builder\WeatherRequestBuilder;
-use App\Domain\CurrentWeather\Builder\WeatherResponseBuilder;
+use Api\Common\Service\GuzzleClient;
+use Api\Domain\WeatherCity\Builder\WeatherRequestBuilder;
+use Api\Domain\WeatherCity\Builder\WeatherResponseBuilder;
 use GuzzleHttp\Exception\GuzzleException;
 use JsonMapper_Exception;
 use Psr\Http\Message\ResponseInterface;

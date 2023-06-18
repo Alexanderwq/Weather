@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\CurrentWeather\Builder;
+namespace Api\Domain\WeatherCity\Builder;
 
-use App\Domain\CurrentWeather\Data\WeatherRequest;
+use Api\Domain\WeatherCity\Data\WeatherRequest;
 
 class WeatherRequestBuilder
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Domain\CurrentWeather\Builder;
+namespace Api\Domain\WeatherCity\Builder;
 
-use App\Domain\CurrentWeather\Data\WeatherResponse;
+use Api\Domain\WeatherCity\Data\WeatherResponse;
 use JsonMapper;
 use JsonMapper_Exception;
 
