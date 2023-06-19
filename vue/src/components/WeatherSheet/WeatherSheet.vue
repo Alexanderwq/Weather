@@ -1,17 +1,20 @@
 <template>
   <div class="weather-sheet">
     <CurrentWeatherCity />
+    <HoursSlider />
   </div>
 </template>
 
 <script lang="ts">
 import {defineComponent} from "vue";
 import CurrentWeatherCity from "../CurrentWeather/CurrentWeatherCity.vue";
+import HoursSlider from "../HoursSlider/HoursSlider.vue";
 
 export default defineComponent({
   name: 'WeatherSheet',
   components: {
     CurrentWeatherCity,
+    HoursSlider,
   },
 })
 </script>
@@ -19,7 +22,7 @@ export default defineComponent({
 <style scoped>
   .weather-sheet{
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     justify-content: center;
     background: #03a9f4;
     border-radius: 8px;
