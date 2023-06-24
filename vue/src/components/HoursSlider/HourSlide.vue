@@ -44,5 +44,18 @@ export default defineComponent({
     justify-content: center;
     border-radius: 6px;
   }
+  .hour-slide__temp{
+    position: relative;
+  }
+  .hour-slide__temp:after {
+    position: absolute;
+    content: '';
+    top: 2px;
+    right: -10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 2px solid #03a9f4;
+  }
 </style>
 
