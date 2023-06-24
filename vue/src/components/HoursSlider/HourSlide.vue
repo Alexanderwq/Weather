@@ -35,7 +35,9 @@ export default defineComponent({
 
 <style scoped>
   .hour-slide{
-    color: #fff;
+    color: #03a9f4;
+    background: #fff;
+    font-weight: bold;
     display: flex;
     flex-direction: column;
     align-items: center;
