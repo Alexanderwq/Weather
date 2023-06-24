@@ -1,12 +1,18 @@
 <template>
   <div class="hours-slider-wrapper">
     <Swiper
-      :slides-per-view="6"
+      :slides-per-view="'auto'"
       :space-between="30"
+      :grab-cursor="true"
+      :touch-events-target="'container'"
       ref="slider"
       @swiper="onSwiper"
     >
-      <SwiperSlide v-for="(data, index) in getHoursForSlider" :key="index">
+      <SwiperSlide
+        v-for="(data, index) in getHoursForSlider"
+        :key="index"
+        class="hours-slide"
+      >
         <HourSlide
             :time="data.time"
             :temp="data.temp_c"
@@ -92,5 +98,8 @@ export default defineComponent({
   }
   .hours-slider__button_next{
     right: -40px;
+  }
+  .hours-slide{
+    max-width: 75px;
   }
 </style>

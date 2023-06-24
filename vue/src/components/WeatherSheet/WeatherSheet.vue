@@ -22,7 +22,7 @@ export default defineComponent({
 <style scoped>
   .weather-sheet{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
     justify-content: center;
     background: #03a9f4;
     border-radius: 8px;

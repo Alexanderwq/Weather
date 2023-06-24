@@ -42,6 +42,7 @@ export default defineComponent({
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    border-radius: 6px;
   }
 </style>
 
