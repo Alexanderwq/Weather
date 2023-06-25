@@ -16,6 +16,7 @@
         <HourSlide
             :time="data.time"
             :temp="data.temp_c"
+            :icon="data.condition.icon"
         />
       </SwiperSlide>
     </Swiper>

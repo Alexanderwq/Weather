@@ -1,5 +1,6 @@
 <template>
   <div class="hour-slide">
+    <img :src="icon" class="hour-slide__img" alt="icon" />
     <div class="hour-slide__time">
       {{ time }}
     </div>
@@ -20,6 +21,10 @@ export default defineComponent({
       required: true,
     },
     temp: {
+      type: String,
+      required: true,
+    },
+    icon: {
       type: String,
       required: true,
     },
@@ -56,6 +61,9 @@ export default defineComponent({
     height: 6px;
     border-radius: 50%;
     border: 2px solid #03a9f4;
+  }
+  .hour-slide__img{
+    max-width: 45px;
   }
 </style>
 
