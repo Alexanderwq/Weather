@@ -1,5 +1,6 @@
 <template>
   <div class="content">
+    <SearchBar />
     <template v-if="!showPreloader">
       <WeatherSheet />
       <SheetWeatherDays />
@@ -14,6 +15,7 @@ import WeatherSheet from "./components/WeatherSheet/WeatherSheet.vue";
 import SheetWeatherDays from "./components/SheetWeatherDays/SheetWeatherDays.vue";
 import {mapActions, mapState} from "vuex";
 import MainPreloader from "./components/Common/MainPreloader.vue";
+import SearchBar from "./components/SearchBar/SearchBar.vue";
 
 export default defineComponent({
   name: 'App',
@@ -21,6 +23,7 @@ export default defineComponent({
     WeatherSheet,
     SheetWeatherDays,
     MainPreloader,
+    SearchBar,
   },
 
   computed: {
@@ -47,9 +50,6 @@ export default defineComponent({
     max-width: 900px;
     margin: 0 auto;
     height: 100vh;
-  }
-  .preloader{
-
   }
 </style>
 <style>
