@@ -1,7 +1,7 @@
 <template>
   <ul class="weather-list">
     <WeatherDay
-      v-for="weatherDay in cityWeatherData.forecast?.forecastday"
+      v-for="weatherDay in cityWeatherData.forecast.forecastday"
       :weather-data="weatherDay"
       :key="weatherDay.date"
     />

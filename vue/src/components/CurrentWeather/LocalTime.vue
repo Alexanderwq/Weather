@@ -16,7 +16,7 @@ export default defineComponent({
         'cityWeatherData',
     ]),
     getLocalTime(): string {
-      const date = new Date(this.cityWeatherData?.location?.localtime)
+      const date = new Date(this.cityWeatherData.location.localtime)
       return date.toLocaleTimeString().slice(0, 5)
     },
   },

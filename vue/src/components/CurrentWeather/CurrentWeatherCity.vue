@@ -16,7 +16,6 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import {mapActions, mapState} from "vuex";
 import WeatherHumidity from "./WeatherHumidity.vue";
 import WeatherTemperature from "./WeatherTemperature.vue";
 import LocalTime from "./LocalTime.vue";
@@ -32,22 +31,6 @@ export default defineComponent({
     WeatherTemperature,
     LocalTime,
     WeatherCity,
-  },
-
-  computed: {
-    ...mapState([
-        'cityWeatherData',
-    ]),
-  },
-
-  methods: {
-    ...mapActions([
-      'getCityWeather',
-    ]),
-  },
-
-  created() {
-    this.getCityWeather();
   },
 })
 </script>
