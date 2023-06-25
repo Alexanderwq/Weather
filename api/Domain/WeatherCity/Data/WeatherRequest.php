@@ -2,11 +2,9 @@
 
 namespace Api\Domain\WeatherCity\Data;
 
-class WeatherRequest
+use Api\Domain\Common\Data\AbstractWeatherRequest;
+
+class WeatherRequest extends AbstractWeatherRequest
 {
-    public string $key;
-
-    public string $q;
-
     public string $days;
 }
