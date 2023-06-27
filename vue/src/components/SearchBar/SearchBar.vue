@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
-    <input type="text" class="search-bar__input" placeholder="Введите название города" />
-    <button class="search-bar__button">
+    <input v-model="text" type="text" class="search-bar__input" placeholder="Введите название города" />
+    <button class="search-bar__button" @click="getCityWeather(text)">
       Поиск
     </button>
   </div>
@@ -9,9 +9,22 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
+import {mapActions} from "vuex";
 
 export default defineComponent({
   name: 'SearchBar',
+
+  data() {
+    return {
+      text: '',
+    };
+  },
+
+  methods: {
+    ...mapActions([
+        'getCityWeather',
+    ]),
+  },
 });
 </script>
 

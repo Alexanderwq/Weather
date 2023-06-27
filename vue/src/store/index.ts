@@ -38,9 +38,9 @@ export default createStore({
         },
     },
     actions: {
-        async getCityWeather({ commit }) {
+        async getCityWeather({ commit }, city: string) {
             commit('setPreloader', true);
-            commit('setCityWeatherData', await api.getCityWeather());
+            commit('setCityWeatherData', await api.getCityWeather(city));
             commit('setPreloader', false);
         },
     },

@@ -39,7 +39,7 @@ export default defineComponent({
   },
 
   created() {
-    this.getCityWeather();
+    this.getCityWeather('Ярославль');
   },
 })
 </script>
