@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
     <input v-model="text" type="text" class="search-bar__input" placeholder="Введите название города" />
-    <button class="search-bar__button" @click="getCityWeather(text)">
+    <button class="search-bar__button" @click="searchCity(text)">
       Поиск
     </button>
   </div>
@@ -24,6 +24,13 @@ export default defineComponent({
     ...mapActions([
         'getCityWeather',
     ]),
+
+    searchCity(city: string) {
+      if (this.text.length < 3) {
+        return alert('Введите больше 3 символов');
+      }
+      this.getCityWeather(city);
+    },
   },
 });
 </script>
