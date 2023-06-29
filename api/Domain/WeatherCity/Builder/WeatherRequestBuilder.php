@@ -6,37 +6,37 @@ use Api\Domain\WeatherCity\Data\WeatherRequest;
 
 class WeatherRequestBuilder
 {
-    private WeatherRequest $currentWeather;
+    private WeatherRequest $weatherRequest;
 
     private CONST DAYS = '3';
 
     public function __construct()
     {
-        $this->currentWeather = new WeatherRequest();
+        $this->weatherRequest = new WeatherRequest();
     }
 
-    public function getCurrentWeather(): WeatherRequest
+    public function getWeatherRequest(): WeatherRequest
     {
-        return $this->currentWeather;
+        return $this->weatherRequest;
     }
 
     public function setCity(string $city): static
     {
-        $this->currentWeather->q = $city;
+        $this->weatherRequest->q = $city;
 
         return $this;
     }
 
     public function setKey(): static
     {
-        $this->currentWeather->key = $_ENV['API_KEY'];
+        $this->weatherRequest->key = $_ENV['API_KEY'];
 
         return $this;
     }
 
     public function setDays(): static
     {
-        $this->currentWeather->days = self::DAYS;
+        $this->weatherRequest->days = self::DAYS;
 
         return $this;
     }
