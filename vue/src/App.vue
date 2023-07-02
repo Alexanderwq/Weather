@@ -39,7 +39,8 @@ export default defineComponent({
   },
 
   created() {
-    this.getCityWeather('Ярославль');
+    this.getCityWeather('Ярославль')
+        .catch(() => alert('Произошла ошибка'));
   },
 })
 </script>

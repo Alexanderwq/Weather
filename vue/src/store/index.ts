@@ -43,5 +43,9 @@ export default createStore({
             commit('setCityWeatherData', await api.getCityWeather(city));
             commit('setPreloader', false);
         },
+
+        searchCities({ commit }, city: string) {
+            api.searchCities(city);
+        },
     },
 });

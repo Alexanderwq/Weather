@@ -23,13 +23,31 @@ export default defineComponent({
   methods: {
     ...mapActions([
         'getCityWeather',
+        'searchCities',
     ]),
 
     searchCity(city: string) {
+      const NOT_FOUND_CODE = 1006;
+
       if (this.text.length < 3) {
         return alert('Введите больше 3 символов');
       }
-      this.getCityWeather(city);
+      this.getCityWeather(city)
+          .catch((error) => {
+            if (error.response?.data.error.code === NOT_FOUND_CODE) {
+              alert('Город не найден')
+            } else{
+              alert('Произошла ошибка при получении города!')
+            }
+          });
+    },
+  },
+
+  watch: {
+    text(newValue) {
+      if (newValue.length >= 3) {
+        this.searchCities(newValue);
+      }
     },
   },
 });
