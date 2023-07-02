@@ -2,7 +2,7 @@
 
 namespace Api\Domain\SearchCity\Data;
 
-class SearchCity
+class City
 {
     public string $name;
 

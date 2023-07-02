@@ -42,9 +42,9 @@ class SearchCitiesAction
             ->getWeatherRequest();
         $weatherRequestAsArray = json_decode(json_encode($weatherRequest), true);
 
-        $json = $this->guzzleClient->call(self::URL, $weatherRequestAsArray);
+        $guzzleResult = $this->guzzleClient->call(self::URL, $weatherRequestAsArray);
 
-        $searchResponse = $this->searchResponseBuilder->build(json_decode($json));
+        $searchResponse = $this->searchResponseBuilder->build(json_decode($guzzleResult));
         $responseJson = json_encode($searchResponse);
 
         $response->getBody()->write($responseJson);

@@ -2,7 +2,7 @@
 
 namespace Api\Domain\SearchCity\Builder;
 
-use Api\Domain\SearchCity\Data\SearchResponse;
+use Api\Domain\SearchCity\Data\City;
 use JsonMapper;
 use JsonMapper_Exception;
 
@@ -18,8 +18,8 @@ class SearchResponseBuilder
     /**
      * @throws JsonMapper_Exception
      */
-    public function build(object $searchData)
+    public function build(array $searchData)
     {
-        return $this->mapper->map($searchData, SearchResponse::class);
+        return $this->mapper->mapArray($searchData, array(), City::class);
     }
 }
