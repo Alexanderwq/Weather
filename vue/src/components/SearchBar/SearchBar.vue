@@ -35,6 +35,8 @@ export default defineComponent({
     ]),
     ...mapActions([
         'getCityWeather',
+    ]),
+    ...mapActions('search', [
         'searchCities',
     ]),
 
@@ -56,7 +58,7 @@ export default defineComponent({
   },
 
   watch: {
-    text(newValue) {
+    search(newValue) {
       if (newValue.length >= 3) {
         this.searchCities(newValue);
       }

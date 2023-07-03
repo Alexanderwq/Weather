@@ -1,6 +1,5 @@
-import axios from "axios";
+import axios, {AxiosResponse} from "axios";
 import CityWeather from "../models/CityWeather";
-import SearchCity from "../models/SearchCity";
 
 export default {
     getCityWeather(city: string): Promise<CityWeather> {
@@ -13,7 +12,7 @@ export default {
         ).then(res => res.data);
     },
 
-    searchCities(city: string): Promise<SearchCity[]> {
+    searchCities(city: string): Promise<AxiosResponse> {
         return axios.post('/search_cities', { city },
             {
                 headers: {
