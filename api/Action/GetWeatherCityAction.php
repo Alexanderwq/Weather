@@ -48,7 +48,7 @@ class GetWeatherCityAction
             $json = $this->guzzleClient->call(self::URL, $weatherRequestAsArray);
         } catch (ClientException $exception) {
             $response->getBody()->write($exception->getResponse()->getBody()->getContents());
-            return $response->withStatus(400);
+            return $response->withStatus(404);
         }
 
         $weatherResponse = $this->weatherResponseBuilder->build(json_decode($json));
