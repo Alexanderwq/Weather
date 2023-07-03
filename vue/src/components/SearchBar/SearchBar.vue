@@ -1,7 +1,7 @@
 <template>
   <div class="search-bar">
-    <input v-model="text" type="text" class="search-bar__input" placeholder="Введите название города" />
-    <button class="search-bar__button" @click="searchCity(text)">
+    <input v-model="search" type="text" class="search-bar__input" placeholder="Введите название города" />
+    <button class="search-bar__button" @click="searchCity(search)">
       Поиск
     </button>
   </div>
@@ -9,18 +9,30 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import {mapActions} from "vuex";
+import {mapActions, mapMutations, mapState} from "vuex";
 
 export default defineComponent({
   name: 'SearchBar',
 
-  data() {
-    return {
-      text: '',
-    };
+  computed: {
+    ...mapState('search', {
+      searchFromStore: 'search',
+    }),
+
+    search: {
+      get(): string {
+        return this.searchFromStore;
+      },
+      set(value): void {
+        this.setSearch(value);
+      },
+    }
   },
 
   methods: {
+    ...mapMutations('search', [
+        'setSearch',
+    ]),
     ...mapActions([
         'getCityWeather',
         'searchCities',
@@ -29,7 +41,7 @@ export default defineComponent({
     searchCity(city: string) {
       const NOT_FOUND_CODE = 1006;
 
-      if (this.text.length < 3) {
+      if (this.search.length < 3) {
         return alert('Введите больше 3 символов');
       }
       this.getCityWeather(city)

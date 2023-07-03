@@ -1,8 +1,13 @@
 import { createStore} from "vuex";
 import api from "../api/api";
 import CityWeather from "../models/CityWeather";
+import search from "./modules/search";
 
 export default createStore({
+    modules: {
+        search,
+    },
+
     state: {
         cityWeatherData: {} as CityWeather,
         showPreloader: false,
@@ -42,10 +47,6 @@ export default createStore({
             commit('setPreloader', true);
             commit('setCityWeatherData', await api.getCityWeather(city));
             commit('setPreloader', false);
-        },
-
-        searchCities({ commit }, city: string) {
-            api.searchCities(city);
         },
     },
 });
