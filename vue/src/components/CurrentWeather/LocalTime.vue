@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import {defineComponent} from "vue";
-import {mapState} from "vuex";
+import {mapGetters, mapState} from "vuex";
 
 export default defineComponent({
   name: 'LocalTime',
@@ -15,9 +15,12 @@ export default defineComponent({
     ...mapState([
         'cityWeatherData',
     ]),
+    ...mapGetters([
+        'getFormattedTime',
+    ]),
+
     getLocalTime(): string {
-      const date = new Date(this.cityWeatherData.location.localtime)
-      return date.toLocaleTimeString().slice(0, 5)
+      return this.getFormattedTime(new Date(this.cityWeatherData.location.localtime))
     },
   },
 })

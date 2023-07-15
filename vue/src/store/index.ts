@@ -13,7 +13,14 @@ export default createStore({
         showPreloader: false,
     },
     getters: {
-        getHoursForSlider(state) {
+        getFormattedTime: () => (time: Date) => {
+            const hour = ('0' + time.getHours()).slice(-2);
+            const min = ('0' + time.getMinutes()).slice(-2);
+
+            return hour + ':' + min;
+        },
+
+        getHoursForSlider(state, getters) {
             const hoursCount = 24;
             const currentLocalTime = state.cityWeatherData.location.localtime
             const hours = state.cityWeatherData.forecast.forecastday
@@ -23,13 +30,9 @@ export default createStore({
             return hours
                 .filter(hourData => new Date(hourData.time) > new Date(currentLocalTime))
                 .map(hourData => {
-                    const date = new Date(hourData.time);
-                    const hour = ('0'+date.getHours()).slice(-2);
-                    const min = ('0'+date.getMinutes()).slice(-2);
-
                     return {
                         ...hourData,
-                        time: hour + ':' + min,
+                        time: getters.getFormattedTime(new Date(hourData.time))
                     }
                 })
                 .slice(0, hoursCount);

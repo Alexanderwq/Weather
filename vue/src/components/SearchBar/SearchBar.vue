@@ -88,12 +88,14 @@ export default defineComponent({
 <style scoped>
   .search-bar{
     background: #03a9f4;
-    border-radius: 6px;
+    border-radius: 0 0 6px 6px;
     padding: 20px;
     margin-bottom: 40px;
     display: flex;
     gap: 20px;
     align-items: center;
+    border: rgba(10,37,64,0.1);
+    box-shadow: 0 0 2px 0 rgba(0,8,50,0.04),0 2px 4px 0 rgba(0,8,50,0.04),0 3px 12px 1px rgba(0,8,50,0.08);
   }
 
   .search-bar__input{
