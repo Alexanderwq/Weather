@@ -1,8 +1,13 @@
 import { createStore} from "vuex";
 import api from "../api/api";
 import CityWeather from "../models/CityWeather";
+import search from "./modules/search";
 
 export default createStore({
+    modules: {
+        search,
+    },
+
     state: {
         cityWeatherData: {} as CityWeather,
         showPreloader: false,
@@ -10,12 +15,13 @@ export default createStore({
     getters: {
         getHoursForSlider(state) {
             const hoursCount = 24;
+            const currentLocalTime = state.cityWeatherData.location.localtime
             const hours = state.cityWeatherData.forecast.forecastday
                 .map(day => day.hour)
                 .flat();
 
             return hours
-                .filter(hourData => new Date(hourData.time) > new Date())
+                .filter(hourData => new Date(hourData.time) > new Date(currentLocalTime))
                 .map(hourData => {
                     const date = new Date(hourData.time);
                     const hour = ('0'+date.getHours()).slice(-2);
@@ -38,9 +44,9 @@ export default createStore({
         },
     },
     actions: {
-        async getCityWeather({ commit }) {
+        async getCityWeather({ commit }, city: string) {
             commit('setPreloader', true);
-            commit('setCityWeatherData', await api.getCityWeather());
+            commit('setCityWeatherData', await api.getCityWeather(city));
             commit('setPreloader', false);
         },
     },

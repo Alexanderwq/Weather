@@ -18,9 +18,9 @@ class GuzzleClient
     /**
      * @throws GuzzleException
      */
-    public function call($params): string
+    public function call(string $url, array $params): string
     {
-        $response = $this->guzzleClient->request('GET', "http://api.weatherapi.com/v1/forecast.json?", [
+        $response = $this->guzzleClient->request('GET', $url, [
             RequestOptions::QUERY => $params
         ]);
 
