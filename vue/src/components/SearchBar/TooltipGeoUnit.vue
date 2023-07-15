@@ -9,7 +9,7 @@
 <script lang="ts">
 import {defineComponent, PropType} from "vue";
 import SearchCity from "../../models/SearchCity";
-import {mapActions} from "vuex";
+import {mapActions, mapMutations} from "vuex";
 
 export default defineComponent({
   name: 'TooltipGeoUnit',
@@ -20,12 +20,16 @@ export default defineComponent({
   },
 
   methods: {
+    ...mapMutations('search', [
+        'setSearch',
+    ]),
     ...mapActions([
         'getCityWeather',
     ]),
 
     getCity() {
       this.getCityWeather(this.city?.url)
+      this.setSearch('')
     },
   },
 })

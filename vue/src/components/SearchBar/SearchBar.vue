@@ -71,6 +71,7 @@ export default defineComponent({
               alert('Произошла ошибка при получении города!')
             }
           });
+      this.setSearch('')
     },
   },
 
