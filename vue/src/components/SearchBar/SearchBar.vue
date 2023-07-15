@@ -1,6 +1,11 @@
 <template>
   <div class="search-bar">
-    <input v-model="search" type="text" class="search-bar__input" placeholder="Введите название города" />
+    <div class="search-bar-wrapper-input">
+      <input v-model="search" type="text" class="search-bar__input" placeholder="Введите название города" />
+      <TooltipList
+        v-if="visibleSearchTooltip"
+      />
+    </div>
     <button class="search-bar__button" @click="searchCity(search)">
       Поиск
     </button>
@@ -10,14 +15,26 @@
 <script lang="ts">
 import {defineComponent} from "vue";
 import {mapActions, mapMutations, mapState} from "vuex";
+import TooltipList from "./TooltipList.vue";
 
 export default defineComponent({
   name: 'SearchBar',
+
+  components: {
+    TooltipList,
+  },
 
   computed: {
     ...mapState('search', {
       searchFromStore: 'search',
     }),
+    ...mapState('search', [
+        'citiesList',
+    ]),
+
+    visibleSearchTooltip(): boolean {
+      return this.citiesList.length !== 0 && this.search.length > 3;
+    },
 
     search: {
       get(): string {
@@ -92,5 +109,9 @@ export default defineComponent({
     background: #fff;
     cursor: pointer;
     border: none;
+  }
+
+  .search-bar-wrapper-input{
+    position: relative;
   }
 </style>

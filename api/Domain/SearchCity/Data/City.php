@@ -9,4 +9,6 @@ class City
     public string $region;
 
     public string $country;
+
+    public string $url;
 }
